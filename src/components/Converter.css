@@ -1,26 +1,6 @@
-/* converter.css */
-
-.converter {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-  
-  header {
-    text-align: center;
-  }
-  
-  main {
-    margin-top: 20px;
-  }
-  
-  input[type="file"] {
-    margin-bottom: 10px;
-  }
-  
-  footer {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
+.cont{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
