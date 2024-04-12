@@ -4,3 +4,62 @@
   flex-direction: column;
   align-items: center;
 }
+/* Converter.css */
+
+.cont {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+/* Additional styles for buttons */
+.main button {
+  margin-top: 10px; /* Add margin between buttons */
+  padding: 10px 20px; /* Add padding to buttons */
+  background-color: #7048e0; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.main button:hover {
+  background-color: #160e2c; /* Darken background color on hover */
+}
+.main {
+  text-align: center;
+}
+/* Converter.css */
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly; /* Align buttons to the start of the container */
+  margin-top: 50px; /* Add margin to separate from the file input */
+}
+
+.button-container button {
+  margin-right: 10px; /* Adjust margin to create space between buttons */
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container button:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}
+button.disabled {
+  opacity: 0.5; /* Reduced opacity for disabled button */
+  cursor: not-allowed; /* Change cursor for disabled button */
+  background-color: #cccccc; /* Light gray background color */
+  color: #999999; 
+}
+

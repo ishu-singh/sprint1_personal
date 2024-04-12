@@ -1,0 +1,41 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: #2E8A99;
+    color: rgb(2, 0, 10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .profile {
+    font-size: 18px;
+    margin-left: auto;
+  }
+  
+  .back-button button {
+    padding: 8px 12px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .back-button button:hover {
+    background-color: #004080;
+    
+
+  }
+  .gif-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.profile-gif {
+  width: 200px; /* Adjust the width of the GIF as needed */
+  height: 50px;
+ 
+}
