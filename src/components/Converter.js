@@ -9,6 +9,8 @@ const ExcelPage = () => {
   const [questionData, setQuestionData] = useState(null);
   const [previewData, setPreviewData] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [options, setOptions] = useState([])
+  const [answers, setAnswers] = useState([])
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileFormatError, setFileFormatError] = useState(false); // State variable for file format error
 
@@ -56,8 +58,14 @@ const ExcelPage = () => {
         const sheet = workbook.Sheets[sheetName];
         const excelData = XLSX.utils.sheet_to_json(sheet, { header: 0 });
         const extractedQuestions = excelData.map(row => row.title);
+        const extractedOptions = excelData.map(row => row.options.split(','));
+        const extractedAnswers = excelData.map(row => row.answers.split(','));
+        console.log("data",excelData)
+        // const convertedOptions = extractedOptions.split(",")
         setQuestionData(excelData);
+        setAnswers(extractedAnswers)
         setQuestions(extractedQuestions);
+        setOptions(extractedOptions)
         setPreviewData(true);
       } else {
         console.error("Unsupported file format");
@@ -89,21 +97,21 @@ const ExcelPage = () => {
             <QuestionLayout
               key={index}
               question={data.title}
-              option1={data.options__001}
-              option2={data.options__002}
-              option3={data.options__003}
-              option4={data.options__004}
-              option5={data.options__005}
+              option1={options[index][0]}
+              option2={options[index][1]}
+              option3={options[index][2]}
+              option4={options[index][3]}
+              option5={options[index][4]}
               subTopic={data.subTopic}
               qtype={data.type}
               atype={data.answerType}
               level={data.level}
               subject={data["subject"]}
-              answer1={data.answers__001}
-              answer2={data.answers__002}
-              answer3={data.answers__003}
-              answer4={data.answers__004}
-              answer5={data.answers__005}
+              answer1={answers[index][0]}
+              answer2={answers[index][1]}
+              answer3={answers[index][2]}
+              answer4={answers[index][3]}
+              answer5={answers[index][4]}
               qnum={index}
             />
           ))}
