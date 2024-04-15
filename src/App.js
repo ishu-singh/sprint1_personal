@@ -1,20 +1,17 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Converter from './components/Converter';
 import QuestionLayout from './components/QuestionLayout';
+// import PreviewPage from "./PreviewPage";
 
 function App() {
   return (
-    <>
-      
-      <Router>
-        <Routes>
-
-          <Route path='/upload' exact element={<Converter/>}/>
-          <Route path='/qlayout' exact element={<QuestionLayout/>}/>
-
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Converter />} />
+        {/* <Route path="/preview" element={<PreviewPage />} /> */}
+        <Route path="/qlayout" element={<QuestionLayout />} />
+      </Routes>
+    </Router>
   );
 }
 

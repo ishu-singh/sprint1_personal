@@ -1,56 +1,63 @@
 import React from "react";
 import "./QuestionLayout.css";
-import check from './images/check.png'
+import check from "./check.png";
 
-const QuestionLayout = (props) => {
-  return (
-    <div className="questions-cont">
-      <div className="subject">Subject: {props.subject}</div>
-      <div className="question">
-        Q{props.qnum + 1}. {props.question}
-      </div>
+const QuestionLayout = ({ questionData, onOkClick }) => {
+    if (!questionData || !Array.isArray(questionData) || questionData.length === 0) {
+        return <div className="error-message">No questions available.</div>;
+    }
+    return (
+        <div className="questions-cont">
+            {questionData.map((data, index) => {
+                // Ensure each data object contains the required properties
+                const hasRequiredProps = data.title && data.options__001 && data.answers__001;
+                if (!hasRequiredProps) {
+                    console.error(`Missing or invalid data at index ${index}`);
+                    return null; // Skip rendering this data
+                }
 
-      <div className="options">
-        <div className="option">
-          {props.option1}
-          {props.option1 === props.answer1 ? <img className='check' src={check}/> : ""}
+                return (
+                    <div key={index} className="question-block">
+                        <div className="subject">Subject: {data.subject || "N/A"}</div>
+                        <div className="question">
+                            Q{index + 1}. {data.title || "N/A"}
+                        </div>
+
+                        <div className="options">
+                            {/* Iterate over options and answers */}
+                            {["001", "002", "003", "004", "005"].map(num => {
+                                const option = data[`options__${num}`] || "";
+                                const answer = data[`answers__${num}`] || "";
+
+                                return option ? (
+                                    <div key={num} className="option">
+                                        {option}
+                                        {option === answer && (
+                                            <img className="check" src={check} alt="correct answer" />
+                                        )}
+                                    </div>
+                                ) : null;
+                            })}
+                        </div>
+
+                        <div className="cont1">
+                            <div className="sub-topic">Sub Topic: {data.subTopic || "N/A"}</div>
+                            <div className="difficulty-level">Difficulty Level: {data.level || "N/A"}</div>
+                        </div>
+
+                        <div className="cont2">
+                            <div className="q-type">Type: {data.type || "N/A"}</div>
+                            <div className="a-type">Answer Type: {data.answerType || "N/A"}</div>
+                        </div>
+                    </div>
+                );
+            })}
+
+            <button className="ok-button" onClick={onOkClick}>
+                OK
+            </button>
         </div>
-
-        {props.option2 && props.option2.length > 0 &&
-        <div className="option">
-          {props.option2}
-          {props.option2 === props.answer2 ? <img className='check' src={check}/> : ""}
-        </div>}
-
-        {props.option3 && props.option3.length > 0 &&
-        <div className="option">
-          {props.option3}
-          {props.option3 === props.answer3 ? <img className='check' src={check}/> : ""}
-        </div>}
-
-        {props.option4 && props.option4.length > 0 &&
-        <div className="option">
-          {props.option4} 
-          {props.option4 === props.answer4 ? <img className='check' src={check}/> : ""}
-        </div>}
-
-        {props.option5 && props.option5.length > 0 &&
-        <div className="option">
-          {props.option5}
-          {props.option5 === props.answer5 ? <img className='check' src={check}/> : ""}
-        </div>}
-        
-      </div>
-      <div className="cont1">
-        <div className="sub-topic">Sub Topic: {props.subTopic}</div>
-        <div className="difficulty-level">Difficulty Level: {props.level}</div>
-      </div>
-      <div className="cont2">
-        <div className="q-type">Type: {props.qtype}</div>
-        <div className="a-type">Answer Type: {props.atype}</div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default QuestionLayout;
