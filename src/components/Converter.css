@@ -1,24 +1,9 @@
-.cont{
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-/* Converter.css */
-
-.cont {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px; /* Add margin to the top */
-}
 
 /* Additional styles for buttons */
 .main button {
   margin-top: 10px; /* Add margin between buttons */
   padding: 10px 20px; /* Add padding to buttons */
-  background-color: #7048e0; /* Set background color */
+  background-color: #7f5ce2; /* Set background color */
   color: #fff; /* Set text color */
   border: none; /* Remove border */
   border-radius: 5px; /* Add border radius */
@@ -57,9 +42,9 @@
   background-color: #0056b3;
 }
 button.disabled {
-  opacity: 0.5; /* Reduced opacity for disabled button */
-  cursor: not-allowed; /* Change cursor for disabled button */
-  background-color: #cccccc; /* Light gray background color */
+  opacity: 0.5; 
+  cursor: not-allowed;
+  background-color: #cccccc; 
   color: #999999; 
 }
 
