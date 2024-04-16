@@ -24,7 +24,7 @@ const ExcelPage = () => {
       return;
     }else{
 
-      setFileFormatError(false); // Reset file format error state
+      setFileFormatError(false); // Reset file format error statenpm start
     }
 
   };
@@ -58,14 +58,14 @@ const ExcelPage = () => {
         const sheet = workbook.Sheets[sheetName];
         const excelData = XLSX.utils.sheet_to_json(sheet, { header: 0 });
         const extractedQuestions = excelData.map(row => row.title);
-        const extractedOptions = excelData.map(row => row.options.split(','));
+        // const extractedOptions = excelData.map(row => row.options.split(','));
         const extractedAnswers = excelData.map(row => row.answers.split(','));
-        console.log("data",excelData)
+        console.log("data",extractedAnswers)
         // const convertedOptions = extractedOptions.split(",")
         setQuestionData(excelData);
         setAnswers(extractedAnswers)
         setQuestions(extractedQuestions);
-        setOptions(extractedOptions)
+        // setOptions(extractedOptions)
         setPreviewData(true);
       } else {
         console.error("Unsupported file format");
@@ -97,21 +97,20 @@ const ExcelPage = () => {
             <QuestionLayout
               key={index}
               question={data.title}
-              option1={options[index][0]}
-              option2={options[index][1]}
-              option3={options[index][2]}
-              option4={options[index][3]}
-              option5={options[index][4]}
-              subTopic={data.subTopic}
-              qtype={data.type}
-              atype={data.answerType}
+              option1={data['Option A']}
+              option2={data['Option B']}
+              option3={data['Option C']}
+              option4={data['Option D']}
+              option5={data['Option E']}
+              option6={data['Option F']}
+              option7={data['Option G']}
+              option8={data['Option H']}
+              subTopic={data.subtopic}
+              qtype={data.questiontype}
+              atype={data.answertype}
               level={data.level}
               subject={data["subject"]}
-              answer1={answers[index][0]}
-              answer2={answers[index][1]}
-              answer3={answers[index][2]}
-              answer4={answers[index][3]}
-              answer5={answers[index][4]}
+              answer={answers[index]}
               qnum={index}
             />
           ))}
