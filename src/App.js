@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Converter from './components/Converter';
-import QuestionLayout from './components/QuestionLayout';
+import QuestionLayout from './components/question/QuestionLayout';
 // import PreviewPage from "./PreviewPage";
 
 function App() {

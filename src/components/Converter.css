@@ -1,18 +1,3 @@
-.cont{
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-/* Converter.css */
-
-.cont {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px; /* Add margin to the top */
-}
 
 /* Additional styles for buttons */
 .main button {
@@ -57,9 +42,9 @@
   background-color: #0056b3;
 }
 button.disabled {
-  opacity: 0.5; /* Reduced opacity for disabled button */
-  cursor: not-allowed; /* Change cursor for disabled button */
-  background-color: #cccccc; /* Light gray background color */
+  opacity: 0.5; 
+  cursor: not-allowed;
+  background-color: #cccccc; 
   color: #999999; 
 }
 
